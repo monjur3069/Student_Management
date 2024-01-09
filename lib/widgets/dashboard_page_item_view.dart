@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../utils/dashboard_page_item.dart';
 
-
 class DashboardPageItemView extends StatelessWidget {
   final DashboardPageItem item;
   final Function(String) onPressed;
@@ -15,12 +14,14 @@ class DashboardPageItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return InkWell(
       onTap: () {
         onPressed(item.title);
       },
       child: Card(
         elevation: 5,
+        color: theme.primaryColor,
         child: SizedBox(
           height: 144,
           width: 136,
@@ -30,17 +31,15 @@ class DashboardPageItemView extends StatelessWidget {
               Icon(
                 item.icon,
                 size: 40,
-                color: Theme.of(context).primaryColor,
+                color: theme.cardColor,
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
                 item.title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
+                style: TextStyle(color: theme.cardColor,fontSize: 16,
+                  fontWeight: FontWeight.w600,),
               ),
             ],
           ),

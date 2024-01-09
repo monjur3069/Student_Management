@@ -5,18 +5,27 @@ import 'package:student_management/view/view_students_page_page/view_students_pa
 import '../../utils/view_page_item.dart';
 import '../../widgets/view_page_item_view.dart';
 
-
 class ViewStudentsPageView extends StatelessWidget {
   const ViewStudentsPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('All Classes')),
+        iconTheme: IconThemeData(color: theme.cardColor),
+        title: Center(
+            child: Text(
+          'All Classes',
+          style: TextStyle(
+            color: theme.cardColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        )),
       ),
       body: GridView.builder(
-        padding: const EdgeInsets.only(left: 8,right: 8),
+        padding: const EdgeInsets.only(left: 8, right: 8),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 14,
@@ -26,140 +35,12 @@ class ViewStudentsPageView extends StatelessWidget {
         itemBuilder: (context, index) => ViewPageItemView(
           item: viewItems[index],
           onPressed: (value) {
-            final route = Get.find<ViewStudentsPageController>().navigate(value);
+            final route =
+                Get.find<ViewStudentsPageController>().navigate(value);
             Get.toNamed(route);
           },
         ),
       ),
-      /*Center(
-          child: SingleChildScrollView(
-        child: Wrap(
-          runSpacing: 15,
-          spacing: 15,
-          children: [
-            ViewPageItemView(
-              item: viewItems[0],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[1],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[2],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[3],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[4],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[5],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[6],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[7],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[8],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[9],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[10],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[11],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-            ViewPageItemView(
-              item: viewItems[12],
-              onPressed: (value) {
-                final route = navigate(value);
-                if(route != ''){
-                  Navigator.pushNamed(context, route);
-                }
-              },
-            ),
-
-
-          ],
-        ),
-      ))*/
     );
   }
-
 }

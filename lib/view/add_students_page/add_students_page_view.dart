@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:image_picker/image_picker.dart';
 
-
 import '../../utils/class_name_items.dart';
 import '../../utils/constants.dart';
 import '../../utils/helper_functions.dart';
@@ -18,9 +17,15 @@ class AddStudentsPageView extends StatelessWidget {
     var controller = Get.find<AddStudentsPageController>();
     final formKey = GlobalKey<FormState>();
 
+    var theme = Theme.of(context);
     return Scaffold(
         appBar: AppBar(
-          title: Text('Student Management'),
+          iconTheme: IconThemeData(color: theme.cardColor),
+          title: Text(
+            'Student Management',
+            style: TextStyle(color: theme.cardColor,fontSize: 16,
+              fontWeight: FontWeight.w600,),
+          ),
           actions: [
             IconButton(
                 onPressed: () async {
@@ -49,18 +54,23 @@ class AddStudentsPageView extends StatelessWidget {
                   width: double.infinity,
                   height: 50,
                   decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
+                      color: theme.cardColor,
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.black)),
+                      border: Border.all(color: theme.primaryColor)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Select Class'),
+                      Text('Select Class',style: TextStyle(
+                          color: theme.primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                       Obx(
                         () => DropdownButton(
                           value: controller.dropdownValue.value,
-                          focusColor: primaryColorWhite,
-                          icon: const Icon(Icons.keyboard_arrow_down),
+                          style: TextStyle(color: theme.primaryColor,),
+                          icon: Icon(Icons.keyboard_arrow_down,color: theme.cardColor,),
                           items: classNameItems.map((String items) {
                             return DropdownMenuItem(
                               value: items,
@@ -79,11 +89,14 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 TextFormField(
+                  style: TextStyle(color: theme.primaryColor,),
                   controller: controller.rollNoController,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: theme.cardColor,
                     filled: true,
+                    hintStyle: TextStyle(color: theme.primaryColor,),
+                    labelStyle: TextStyle(color: theme.primaryColor,),
                     hintText: 'Roll No',
                     labelText: 'Roll No',
                     border: OutlineInputBorder(
@@ -103,10 +116,13 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 TextFormField(
+                  style: TextStyle(color: theme.primaryColor,),
                   controller: controller.studentNameController,
                   decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: theme.cardColor,
                     filled: true,
+                    hintStyle: TextStyle(color: theme.primaryColor,),
+                    labelStyle: TextStyle(color: theme.primaryColor,),
                     hintText: 'Student Name',
                     labelText: 'Student Name',
                     border: OutlineInputBorder(
@@ -124,10 +140,13 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 TextFormField(
+                  style: TextStyle(color: theme.primaryColor,),
                   controller: controller.fatherNameController,
                   decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: theme.cardColor,
                     filled: true,
+                    hintStyle: TextStyle(color: theme.primaryColor,),
+                    labelStyle: TextStyle(color: theme.primaryColor,),
                     hintText: 'Father Name',
                     labelText: 'Father Name',
                     border: OutlineInputBorder(
@@ -145,10 +164,13 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 TextFormField(
+                  style: TextStyle(color: theme.primaryColor,),
                   controller: controller.motherNameController,
                   decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: theme.cardColor,
                     filled: true,
+                    hintStyle: TextStyle(color: theme.primaryColor,),
+                    labelStyle: TextStyle(color: theme.primaryColor,),
                     hintText: 'Mother Name',
                     labelText: 'Mother Name',
                     border: OutlineInputBorder(
@@ -166,11 +188,14 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 TextFormField(
+                  style: TextStyle(color: theme.primaryColor,),
                   controller: controller.phoneNumberController,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: theme.cardColor,
                     filled: true,
+                    hintStyle: TextStyle(color: theme.primaryColor,),
+                    labelStyle: TextStyle(color: theme.primaryColor,),
                     hintText: 'Phone Number',
                     labelText: 'Phone Number',
                     border: OutlineInputBorder(
@@ -188,10 +213,13 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 TextFormField(
+                  style: TextStyle(color: theme.primaryColor,),
                   controller: controller.addressController,
                   decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: theme.cardColor,
                     filled: true,
+                    hintStyle: TextStyle(color: theme.primaryColor,),
+                    labelStyle: TextStyle(color: theme.primaryColor,),
                     hintText: 'Address',
                     labelText: 'Address',
                     border: OutlineInputBorder(
@@ -209,11 +237,14 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 TextFormField(
+                  style: TextStyle(color: theme.primaryColor,),
                   controller: controller.sessionController,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
+                    fillColor: theme.cardColor,
                     filled: true,
+                    hintStyle: TextStyle(color: theme.primaryColor,),
+                    labelStyle: TextStyle(color: theme.primaryColor,),
                     hintText: 'Session',
                     labelText: 'Session',
                     border: OutlineInputBorder(
@@ -233,6 +264,7 @@ class AddStudentsPageView extends StatelessWidget {
                   height: 13,
                 ),
                 Card(
+                  color: theme.cardColor,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -240,14 +272,14 @@ class AddStudentsPageView extends StatelessWidget {
                           onPressed: () async {
                             await controller.selectDate(context);
                           },
-                          child: Text('Select Add Date')),
+                          child: Text('Select Add Date',style: TextStyle(color: theme.primaryColor,),)),
                       GetBuilder<AddStudentsPageController>(
                           init: controller,
                           builder: (context) {
                             return Text(controller.addDate == null
                                 ? 'No Date Chosen'
                                 : getFormattedDateTime(
-                                    controller.addDate!, 'dd/MM/yyyy'));
+                                    controller.addDate!, 'dd/MM/yyyy'),style: TextStyle(color: theme.primaryColor,),);
                           }),
                     ],
                   ),
@@ -257,6 +289,7 @@ class AddStudentsPageView extends StatelessWidget {
                     height: 100,
                     width: 100,
                     child: Card(
+                      color: theme.cardColor,
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16)),
@@ -274,11 +307,11 @@ class AddStudentsPageView extends StatelessWidget {
                                                       CircularProgressIndicator(),
                                                 )
                                               : Image.asset(
-                                                  'images/placeholder.jpg',
-                                                  fit: BoxFit.cover,
-                                                  height: 100,
-                                                  width: 100,
-                                                );
+                                            'images/placeholder.jpg',
+                                            fit: BoxFit.cover,
+                                            height: 100,
+                                            width: 100,
+                                          );
                                         },
                                       )
                                     : Obx(
@@ -304,21 +337,23 @@ class AddStudentsPageView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(theme.cardColor)),
                         onPressed: () async {
                           controller.imageSource = ImageSource.camera;
                           await controller.getImage();
                         },
-                        child: Text('Camera')),
+                        child: Text('Camera',style: TextStyle(color: theme.primaryColor),)),
                     SizedBox(
                       width: 20,
                     ),
                     ElevatedButton(
+                      style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(theme.cardColor)),
                         onPressed: () async {
                           controller.imageSource = ImageSource.gallery;
                           await controller.getImage();
                           // await controller.getImagewithImage();
                         },
-                        child: Text('Gallary')),
+                        child: Text('Gallary',style: TextStyle(color: theme.primaryColor,),)),
                   ],
                 )
               ],

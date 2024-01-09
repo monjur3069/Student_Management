@@ -7,16 +7,20 @@ import '../view/classes/all_classes_controller/all_classes_controller.dart';
 
 class ClassPageItemView extends StatelessWidget {
   AllClassesController controller;
-
   ClassPageItemView({required this.controller, super.key});
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return controller.studentList.isEmpty
-        ? const Center(
+        ? Center(
             child: Text(
               'No item found',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(
+                color: theme.cardColor,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           )
         : ListView.builder(
@@ -56,14 +60,14 @@ class ClassPageItemView extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    color: primaryColorWhite,
+                    color: theme.cardColor,
                     child: Container(
                       padding: EdgeInsets.only(left: 12, right: 8, top: 10),
                       height: 100,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        color: primaryColorWhite,
+                        color: theme.cardColor,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,9 +78,9 @@ class ClassPageItemView extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
-                                color: primaryColorTitle),
+                                color: theme.primaryColor),
                           )),
-                          Divider(height: 1, color: primaryColorTitle),
+                          Divider(height: 1, color: theme.primaryColor),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,14 +95,15 @@ class ClassPageItemView extends StatelessWidget {
                                       Text(
                                         'Class : ',
                                         style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 14,
                                             fontWeight: FontWeight.w600,
-                                            color: primaryColorTitle),
+                                            color: theme.primaryColor),
                                       ),
                                       Text(
                                         student.className,
                                         style: TextStyle(
                                             fontSize: 14,
+                                            color: theme.primaryColor,
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ],
@@ -109,14 +114,15 @@ class ClassPageItemView extends StatelessWidget {
                                       Text(
                                         'Roll : ',
                                         style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 14,
                                             fontWeight: FontWeight.w600,
-                                            color: primaryColorTitle),
+                                            color: theme.primaryColor),
                                       ),
                                       Text(
                                         student.rollNo.toString(),
                                         style: TextStyle(
                                             fontSize: 14,
+                                            color: theme.primaryColor,
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ],
@@ -131,7 +137,7 @@ class ClassPageItemView extends StatelessWidget {
                                         await _call((student.phoneNumber));
                                       },
                                       icon: Icon(Icons.call,
-                                          color: Color(0xFF0077cc))),
+                                          color: theme.primaryColor)),
                                 ],
                               )
                             ],

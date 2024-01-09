@@ -6,42 +6,49 @@ import '../../widgets/dashboard_page_item_view.dart';
 import '../../widgets/main_drawer.dart';
 import 'dashboard_page_controller.dart';
 
-
 class DashBoardPageView extends StatelessWidget {
   const DashBoardPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Scaffold(
         drawer: MainDrawer(),
         appBar: AppBar(
-          title: const Center(child: Text('DashBoard')),
-          // leading: Icon(Icons.menu),
+          iconTheme: IconThemeData(color: theme.cardColor),
+          title: Center(
+              child: Text(
+            'DashBoard',
+            style: TextStyle(color: theme.cardColor,fontSize: 16,
+              fontWeight: FontWeight.w600,),
+          )),
           actions: [
             IconButton(
-              icon: Icon(Icons.logout),
+              icon: Icon(
+                Icons.logout,
+                color: theme.cardColor,
+              ),
               onPressed: () {
                 Get.find<DashBoardPageController>().logout();
               },
             )
           ],
         ),
-      body: GridView.builder(
-        padding: const EdgeInsets.only(left: 8,right: 8),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 4,
-          mainAxisSpacing: 4,
-        ),
-        itemCount: dashboardItems.length,
-        itemBuilder: (context, index) => DashboardPageItemView(
-          item: dashboardItems[index],
-          onPressed: (value) {
-            final route = Get.find<DashBoardPageController>().navigate(value);
-            Get.toNamed(route);
-          },
-        ),
-      ));
+        body: GridView.builder(
+          padding: const EdgeInsets.only(left: 8, right: 8),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 4,
+          ),
+          itemCount: dashboardItems.length,
+          itemBuilder: (context, index) => DashboardPageItemView(
+            item: dashboardItems[index],
+            onPressed: (value) {
+              final route = Get.find<DashBoardPageController>().navigate(value);
+              Get.toNamed(route);
+            },
+          ),
+        ));
   }
-
 }

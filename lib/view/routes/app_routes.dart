@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:student_management/view/settings_page/settings_page_binding.dart';
+import 'package:student_management/view/settings_page/settings_page_view.dart';
 
 
 
@@ -43,10 +45,17 @@ class AppRoutes {
       page: () => LoginPageView(),
       binding: LoginPageBinding()
     ),
+
+
     GetPage(
         name: dashBoardPage,
         page: () => DashBoardPageView(),
         binding: DashBoardPageBinding()
+    ),
+    GetPage(
+        name: settingsPage,
+        page: () => SettingPageView(),
+        binding: SettingPageBinding()
     ),
     GetPage(
         name: addStudentsPage,

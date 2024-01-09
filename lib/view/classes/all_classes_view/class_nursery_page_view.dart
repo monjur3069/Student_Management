@@ -16,7 +16,6 @@ class _ClassNurseryPageViewState extends State<ClassNurseryPageView> {
   Widget build(BuildContext context) {
     var controller = Get.find<AllClassesController>();
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
       appBar: EveryClassAppbar(className: 'Nursery'),
       body: GetBuilder<AllClassesController>(
           init: controller.getAllStudentByClassName('nursery'),

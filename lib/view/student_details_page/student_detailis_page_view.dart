@@ -16,41 +16,16 @@ class StudentDetailsPageView extends StatelessWidget {
     var studentModel = Get.arguments;
     final controller =
     Get.find<StudentDetailsPageController>();
+    var theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade200,
-        title: const Center(child: Text('Student Details Page',style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
-            color: primaryColorTitle),)),
+        iconTheme: IconThemeData(color: theme.cardColor),
+        title: Center(child: Text('Student Details Page',style: TextStyle(
+          color: theme.cardColor,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),)),
         actions: [
-          /*PopupMenuButton<int>(
-            itemBuilder: (context) => [
-              const PopupMenuItem(
-                value: 1,
-                child: Text('Update'),
-              ),
-              const PopupMenuItem(
-                value: 2,
-                child: Text('Delete'),
-              ),
-              // Add more options as needed
-            ],
-            onSelected: (value) {
-              // Handle the selected option
-              switch (value) {
-                case 1:
-                  // Handle Option 2
-                  break;
-                case 2:
-                  provider.deleteStudentByRollNo(context, studentModel.rollNo,
-                      studentModel.imageUrl, true);
-                  break;
-                // Add more cases as needed
-              }
-            },
-          ),*/
           StudentDetailsPageAppbarAction(controller: controller, studentModel: studentModel)
         ],
       ),
@@ -68,20 +43,20 @@ class StudentDetailsPageView extends StatelessWidget {
                       child: Text(
                         studentModel.studentName,
                         style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: primaryColorTitle),
+                          color: theme.cardColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       )),
                 ),
                 Card(
-                  elevation: 10,
-                  shadowColor: primaryColorTitle,
+                  color: theme.cardColor,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      side: BorderSide(color: primaryColorTitle)
+                      borderRadius: BorderRadius.circular(8),
+                    side: BorderSide(color: theme.cardColor,width: .5)
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(8),
                     child: FadeInImage.assetNetwork(
                       placeholder: 'images/spinner.gif',
                       image: studentModel.imageUrl,
@@ -101,19 +76,18 @@ class StudentDetailsPageView extends StatelessWidget {
             Expanded(
               child: Card(
                 elevation: 10,
-                shadowColor: primaryColorTitle,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                color: primaryColorWhite,
+                color: theme.cardColor,
                 child: Container(
                   padding: EdgeInsets.only(
                     left: 16,
                     right: 16,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: primaryColorWhite,
+                    borderRadius: BorderRadius.circular(16),
+                    color: theme.cardColor,
                   ),
                   width: MediaQuery.of(context).size.width,
                   child: SingleChildScrollView(
@@ -124,11 +98,12 @@ class StudentDetailsPageView extends StatelessWidget {
                             child: Text(
                               'Student Information',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: primaryColorTitle),
+                                color: theme.primaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
                             )),
-                        Divider(height: 1, color: primaryColorTitle),
+                        Divider(height: 1, color: theme.primaryColor),
                         SizedBox(
                           height: 10,
                         ),
@@ -159,9 +134,10 @@ class StudentDetailsPageView extends StatelessWidget {
                             Text(
                               'Date Of Birth : ',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  color: primaryColorTitle),
+                                color: theme.primaryColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                             SizedBox(
                               width: 5,
@@ -169,7 +145,10 @@ class StudentDetailsPageView extends StatelessWidget {
                             Text(
                               '${studentModel.dateModel.day.toString()}/${studentModel.dateModel.month.toString()}/${studentModel.dateModel.year.toString()}',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w400, fontSize: 14),
+                                color: theme.primaryColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ],
                         ),

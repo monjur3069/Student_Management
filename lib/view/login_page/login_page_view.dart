@@ -73,10 +73,10 @@ class _LoginPageViewState extends State<LoginPageView> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Form(
       key: formKey,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -108,12 +108,15 @@ class _LoginPageViewState extends State<LoginPageView> with SingleTickerProvider
                             ).animate(_emailAnimation),
                             child: TextFormField(
                               controller: emailController,
+                              style: TextStyle(color: theme.primaryColor,),
                               decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
+                                fillColor: theme.cardColor,
                                 filled: true,
+                                hintStyle: TextStyle(color: theme.primaryColor,),
+                                labelStyle: TextStyle(color: theme.primaryColor,),
                                 hintText: 'Email',
                                 labelText: 'abc@mail.com',
-                                prefixIcon: Icon(Icons.mail_outline),
+                                prefixIcon: Icon(Icons.mail_outline,color: theme.primaryColor,),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -144,15 +147,18 @@ class _LoginPageViewState extends State<LoginPageView> with SingleTickerProvider
                             child: TextFormField(
                               controller: passController,
                               obscureText: isObscureText,
+                              style: TextStyle(color: theme.primaryColor,),
                               decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
+                                fillColor: theme.cardColor,
                                 filled: true,
+                                hintStyle: TextStyle(color: theme.primaryColor,),
+                                labelStyle: TextStyle(color: theme.primaryColor,),
                                 hintText: 'Password',
-                                prefixIcon: Icon(Icons.lock_open_outlined),
+                                prefixIcon: Icon(Icons.lock_open_outlined,color: theme.primaryColor,),
                                 suffixIcon: IconButton(
                                   icon: Icon(isObscureText
                                       ? Icons.visibility_off
-                                      : Icons.visibility),
+                                      : Icons.visibility,color: theme.primaryColor,),
                                   onPressed: () => setState(() {
                                     isObscureText = !isObscureText;
                                   }),
@@ -194,10 +200,10 @@ class _LoginPageViewState extends State<LoginPageView> with SingleTickerProvider
                                 height: _heightAnimation.value,
                                 width: _widthAnimation.value,
                                 decoration: BoxDecoration(
-                                    color: Color(0xff00e5fa),
+                                    color: theme.cardColor,
                                     borderRadius: BorderRadius.circular(16)
                                 ),
-                                child: Center(child: Text('Sign In',style: TextStyle(color: primaryColorWhite,fontSize: 20,fontWeight: FontWeight.w600),)),
+                                child: Center(child: Text('Sign In',style: TextStyle(color: theme.primaryColor,fontSize: 20,fontWeight: FontWeight.w600),)),
                               );
                             }
                         ),

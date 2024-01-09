@@ -10,6 +10,7 @@ class StudentDetailsPageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,17 +20,22 @@ class StudentDetailsPageItem extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: primaryColorTitle),
+              style: TextStyle(
+                color: theme.primaryColor,
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const SizedBox(
               width: 5,
             ),
             Text(
               subTitle,
-              style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+              style: TextStyle(
+                color: theme.primaryColor,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ],
         ),

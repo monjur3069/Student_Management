@@ -30,10 +30,7 @@ class MyApp extends StatelessWidget {
         child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'KPCAM',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
+          theme: lightTheme,
           builder: EasyLoading.init(),
           getPages: AppRoutes.pages,
           initialRoute: launcherPage,

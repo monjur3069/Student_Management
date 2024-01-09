@@ -48,6 +48,7 @@ class AddStudentsPageController extends GetxController{
   selectDate(BuildContext context) async {
     final selectedDate = await showDatePicker(
         context: context,
+        keyboardType: TextInputType.name,
         initialDate: DateTime.now(),
         firstDate: DateTime(1950),
         lastDate: DateTime.now());
