@@ -14,6 +14,7 @@ class MainDrawer extends StatelessWidget {
       width: MediaQuery.of(context).size.width * .7,
       child: ListView(
         children: [
+          SizedBox(height: 5,),
           Container(
             height: 150,
             color: theme.primaryColor,
@@ -39,7 +40,7 @@ class MainDrawer extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  'Kaundia Madrasha',
+                  'Kaundia Madrasha'.tr,
                   style: TextStyle(color: theme.cardColor,fontSize: 14,
                     fontWeight: FontWeight.w400,),
                 ),
@@ -60,7 +61,7 @@ class MainDrawer extends StatelessWidget {
               color: theme.cardColor,
             ),
             title: Text(
-              'My Profile',
+              'My Profile'.tr,
               style: TextStyle(color: theme.cardColor,fontSize: 16,
                 fontWeight: FontWeight.w600,),
             ),
@@ -74,7 +75,7 @@ class MainDrawer extends StatelessWidget {
               color: theme.cardColor,
             ),
             title: Text(
-              'Settings',
+              'Settings'.tr,
               style: TextStyle(color: theme.cardColor,fontSize: 16,
                 fontWeight: FontWeight.w600,),
             ),
@@ -88,7 +89,7 @@ class MainDrawer extends StatelessWidget {
               color: theme.cardColor,
             ),
             title: Text(
-              'LOGOUT',
+              'Log Out'.tr,
               style: TextStyle(color: theme.cardColor,fontSize: 16,
                 fontWeight: FontWeight.w600,),
             ),

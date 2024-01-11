@@ -16,7 +16,7 @@ class ViewStudentsPageView extends StatelessWidget {
         iconTheme: IconThemeData(color: theme.cardColor),
         title: Center(
             child: Text(
-          'All Classes',
+          'All Classes'.tr,
           style: TextStyle(
             color: theme.cardColor,
             fontSize: 16,

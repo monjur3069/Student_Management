@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utils/dashboard_page_item.dart';
 
@@ -37,7 +38,7 @@ class DashboardPageItemView extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                item.title,
+                item.title.tr,
                 style: TextStyle(color: theme.cardColor,fontSize: 16,
                   fontWeight: FontWeight.w600,),
               ),

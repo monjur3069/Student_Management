@@ -13,9 +13,9 @@ class Class9PageView extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.find<AllClassesController>();
     return Scaffold(
-      appBar: EveryClassAppbar(className: 'Play'),
+      appBar: EveryClassAppbar(className: '9'),
       body: GetBuilder<AllClassesController>(
-          init: controller.getAllStudentByClassName('play'),
+          init: controller.getAllStudentByClassName('9'),
           builder: (context) {
             return ClassPageItemView(controller: controller);
           }),

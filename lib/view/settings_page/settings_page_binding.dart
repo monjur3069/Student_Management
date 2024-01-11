@@ -4,7 +4,8 @@ import 'package:student_management/view/settings_page/settings_page_controller.d
 class SettingPageBinding extends Bindings{
   @override
   void dependencies() {
-    Get.lazyPut(() => SettingPageController());
+    // Get.lazyPut(() => SettingPageController(),fenix: true);
+    Get.put(SettingPageController(),permanent: true);
   }
 
 }

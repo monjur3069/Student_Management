@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:student_management/routes/app_routes.dart';
 import 'package:student_management/utils/constants.dart';
-import 'package:student_management/view/routes/app_routes.dart';
 
 import 'firebase_options.dart';
+import 'services/localiztion_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => SafeArea(
         child: GetMaterialApp(
+          translations: Localization(),
+          locale: Get.deviceLocale,
+          fallbackLocale: const Locale('bn','bd'),//Get.deviceLocale,
           debugShowCheckedModeBanner: false,
           title: 'KPCAM',
           theme: lightTheme,

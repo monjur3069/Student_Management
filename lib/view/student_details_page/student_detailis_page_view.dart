@@ -108,31 +108,31 @@ class StudentDetailsPageView extends StatelessWidget {
                           height: 10,
                         ),
                         StudentDetailsPageItem(
-                            title: 'Class : ',
+                            title: 'Class'.tr,
                             subTitle: studentModel.className),
                         StudentDetailsPageItem(
-                            title: 'Roll No : ',
+                            title: 'Roll'.tr,
                             subTitle: studentModel.rollNo.toString()),
                         StudentDetailsPageItem(
-                            title: 'Father Name : ',
+                            title: 'Father Name'.tr,
                             subTitle: studentModel.fatherName),
                         StudentDetailsPageItem(
-                            title: 'Mother Name : ',
+                            title: 'Mother Name'.tr,
                             subTitle: studentModel.motherName),
                         StudentDetailsPageItem(
-                            title: 'Address : ',
+                            title: 'Address'.tr,
                             subTitle: studentModel.address),
                         StudentDetailsPageItem(
-                            title: 'Phone : ',
+                            title: 'Phone'.tr,
                             subTitle: studentModel.phoneNumber),
                         StudentDetailsPageItem(
-                            title: 'Session : ',
+                            title: 'Session'.tr,
                             subTitle: studentModel.session.toString()),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'Date Of Birth : ',
+                              'Date Of Birth'.tr,
                               style: TextStyle(
                                 color: theme.primaryColor,
                                 fontSize: 14,

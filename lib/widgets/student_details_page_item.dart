@@ -26,6 +26,13 @@ class StudentDetailsPageItem extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            Text(
+              ' : ',
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: theme.primaryColor),
+            ),
             const SizedBox(
               width: 5,
             ),

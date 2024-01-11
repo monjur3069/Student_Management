@@ -39,13 +39,15 @@ dependencies:
   firebase_auth: ^4.2.1
   cloud_firestore: ^4.2.0
   firebase_storage: ^11.0.8
+  http:
+  dio:
   intl:
   image_picker:
   file_picker: ^6.1.1
   flutter_easyloading:
   flutter_screenutil: ^5.9.0
-  shared_preferences: ^2.2.2
   get: ^4.6.6
+  shared_preferences: ^2.2.2
   email_validator: ^2.1.17
   url_launcher: ^6.2.2
   pdf: ^3.10.7

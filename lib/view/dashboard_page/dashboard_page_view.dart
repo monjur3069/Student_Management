@@ -18,19 +18,25 @@ class DashBoardPageView extends StatelessWidget {
           iconTheme: IconThemeData(color: theme.cardColor),
           title: Center(
               child: Text(
-            'DashBoard',
+            'DashBoard'.tr,
             style: TextStyle(color: theme.cardColor,fontSize: 16,
               fontWeight: FontWeight.w600,),
           )),
           actions: [
-            IconButton(
-              icon: Icon(
-                Icons.logout,
-                color: theme.cardColor,
-              ),
-              onPressed: () {
-                Get.find<DashBoardPageController>().logout();
-              },
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: TextButton(
+                  onPressed: () async {
+                    Get.find<DashBoardPageController>().logout();
+                  },
+                  style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(theme.cardColor)),
+                  child: Text(
+                    'Log Out'.tr,
+                    style: TextStyle(
+                        color: theme.primaryColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14),
+                  )),
             )
           ],
         ),

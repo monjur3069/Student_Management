@@ -203,7 +203,7 @@ class _LoginPageViewState extends State<LoginPageView> with SingleTickerProvider
                                     color: theme.cardColor,
                                     borderRadius: BorderRadius.circular(16)
                                 ),
-                                child: Center(child: Text('Sign In',style: TextStyle(color: theme.primaryColor,fontSize: 20,fontWeight: FontWeight.w600),)),
+                                child: Center(child: Text('Sign In'.tr,style: TextStyle(color: theme.primaryColor,fontSize: 20,fontWeight: FontWeight.w600),)),
                               );
                             }
                         ),

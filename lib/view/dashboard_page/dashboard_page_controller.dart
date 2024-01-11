@@ -31,10 +31,10 @@ class DashBoardPageController extends GetxController{
         route = '';
         break;
       case DashboardPageItem.settings:
-        route = '';
+        route = settingsPage;
         break;
       case DashboardPageItem.report:
-        route = '';
+        route = reportPage;
         break;
     }
     return route;

@@ -93,7 +93,14 @@ class ClassPageItemView extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        'Class : ',
+                                        'Class'.tr,
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: theme.primaryColor),
+                                      ),
+                                      Text(
+                                        ' : ',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
@@ -112,7 +119,14 @@ class ClassPageItemView extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        'Roll : ',
+                                        'Roll'.tr,
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: theme.primaryColor),
+                                      ),
+                                      Text(
+                                        ' : ',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
