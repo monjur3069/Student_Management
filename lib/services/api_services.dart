@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart' as dio;
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/my_model.dart';
 import '../models/now_playing_model.dart';
 import '../models/poular_model.dart';
 
-class ApiServies{
+class ApiServies {
 
   static const baseUrl = 'https://api.themoviedb.org/3/movie/';
   final String _nowplayingurl = '${baseUrl}now_playing?api_key=1b11a9f6356e930cb7542b3606c403f9&language=en-US&page=1';
@@ -58,5 +59,27 @@ class ApiServies{
       return NowPlayingModel.withError("Data not found / Connection issue");
     }
   }
+
+  fetchDataAfterLogin(String email,String pass) async {
+    try {
+      final response = await http.post(Uri.parse(
+          'https://peanut.ifxdb.com/api/ClientCabinetBasic/IsAccountCredentialsCorrect'),
+          body: {
+            'login': email,
+            'password': pass,
+          });
+
+      var data = jsonDecode(response.body);
+
+      if(response.statusCode == 200){
+        Get.snackbar('Login Successful','Congratulations');
+      }else{
+        Get.snackbar('Login Failed',data['error']);
+      }
+    } catch (e){
+      Get.snackbar('Exception',e.toString());
+    }
+  }
+
 
 }

@@ -2,7 +2,6 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/constants.dart';
 import 'login_page_controller.dart';
 
 
@@ -203,7 +202,7 @@ class _LoginPageViewState extends State<LoginPageView> with SingleTickerProvider
                                     color: theme.cardColor,
                                     borderRadius: BorderRadius.circular(16)
                                 ),
-                                child: Center(child: Text('Sign In'.tr,style: TextStyle(color: theme.primaryColor,fontSize: 20,fontWeight: FontWeight.w600),)),
+                                child: Center(child: Text('Log In'.tr,style: TextStyle(color: theme.primaryColor,fontSize: 20,fontWeight: FontWeight.w600),)),
                               );
                             }
                         ),

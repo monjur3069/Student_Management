@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:student_management/routes/app_routes.dart';
 import 'package:student_management/utils/constants.dart';
 
+import 'auth/auth_prefs.dart';
 import 'firebase_options.dart';
 import 'services/localiztion_services.dart';
 
@@ -14,15 +15,20 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  var valueForTheme = await getValueForTheme();
+  var valueForLanguage = await getValueForLanguage();
+  runApp(MyApp(valueForTheme:valueForTheme,valueForLanguage: valueForLanguage,));
 
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  bool valueForTheme;
+  bool valueForLanguage;
+  MyApp({required this.valueForTheme,required this.valueForLanguage,super.key});
 
   @override
   Widget build(BuildContext context) {
+    print('The Initial value is $valueForTheme');
     return ScreenUtilInit(
       designSize: const Size(1920, 1080),
       minTextAdapt: true,
@@ -30,11 +36,11 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => SafeArea(
         child: GetMaterialApp(
           translations: Localization(),
-          locale: Get.deviceLocale,
+          locale: valueForLanguage ? Locale('bn','bd') : Get.deviceLocale,
           fallbackLocale: const Locale('bn','bd'),//Get.deviceLocale,
           debugShowCheckedModeBanner: false,
           title: 'KPCAM',
-          theme: lightTheme,
+          theme: valueForTheme ? lightTheme : darkTheme,
           builder: EasyLoading.init(),
           getPages: AppRoutes.pages,
           initialRoute: launcherPage,
