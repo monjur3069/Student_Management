@@ -2,8 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:student_management/models/login_model.dart';
 
 import '../../auth/auth_service.dart';
+import '../../services/api_services.dart';
 import '../../utils/constants.dart';
 import '../../utils/helper_functions.dart';
 
@@ -37,4 +39,16 @@ class LoginPageController extends GetxController{
     }
   }
 
+  LoginModel? loginModel;
+  bool get hasNowPlayingMovieDataLoaded => loginModel != null;
+
+  fetchDataAfterLogin(String email,String pass) async {
+    loginModel = await ApiServies().fetchDataAfterLogin(email, pass);
+    if(loginModel != null){
+      Get.offNamed(dashBoardPage);
+    }
+    print('LoginModel called');
+    print(loginModel!.token);
+    update();
+  }
 }
